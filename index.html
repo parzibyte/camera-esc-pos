@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!--
+ 		Tomar una fotografía y enviarla a Telegram periódicamente
+    	@date 2024-05-14
+	    @author parzibyte
+	    @web parzibyte.me/blog
+	-->
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Cámara + Impresora térmica</title>
+	<style>
+		@media only screen and (max-width: 700px) {
+			video {
+				max-width: 100%;
+			}
+		}
+	</style>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="flex flex-col p-2">
+		<h1 class="text-2xl">Imprimir fotos de cámara en impresora térmica</h1>
+		<div>
+			<p class="mb-0">Selecciona tu cámara</p>
+			<select class="border-sky-400 border-2 max-w-min rounded-md mb-2" name="listaDeDispositivos"
+				id="listaDeDispositivos"></select>
+		</div>
+		<video class="max-w-96" muted="muted" id="video"></video>
+		<div>
+
+			<p class="mb-0">Ahora tu impresora:</p>
+			<select class="border-sky-400 border-2 max-w-min rounded-md mb-2" id="impresoras"></select>
+		</div>
+		<div>
+			<p class="mb-0">Si la imagen no se imprime correctamente, puede que necesites cambiar el algoritmo de
+				conversión</p>
+			<select class="border-sky-400 border-2 max-w-min rounded-md mb-2" name="algoritmo" id="algoritmo">
+				<option value="0">Raster bit image</option>
+				<option value="1">Bit image column format</option>
+				<option value="2">NV Graphics</option>
+			</select>
+		</div>
+		<div>
+			<p class="mb-0">Licencia (opcional)</p>
+			<input placeholder="Licencia" type="password" id="licencia" class="border-sky-400 border-2 max-w-min rounded-md mb-2 p-1 outline-none">
+		</div>
+		<div class="p-2 bg-yellow-400 my-2 rounded-md text-white">
+			¿No funciona? Revisa la <a class="font-bold hover:text-gray-200" target="_blank"
+				href="https://parzibyte.me/http-esc-pos-desktop-docs/es/guia/introduccion.html">guía de
+				instalación</a>
+		</div>
+		<button id="imprimir"
+			class="max-w-max border-2 border-sky-400 rounded-md p-1 bg-sky-500 text-white hover:bg-sky-400">Tomar e
+			imprimir</button>
+	</div>
+	<div>
+		<p id="estado"></p>
+	</div>
+	<br>
+
+</body>
+<script src="script.js"></script>
+
+</html>
